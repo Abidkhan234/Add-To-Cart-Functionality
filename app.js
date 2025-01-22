@@ -44,6 +44,7 @@ addItemBtns.forEach((button) => {
     button.addEventListener("click", (event) => {
         let productCard = event.target.closest(".product-card");
         addToCart(productCard);
+        totalPriceUpdate();
     });
 
 });
@@ -118,7 +119,7 @@ const addToCart = (event) => {
         totalPriceUpdate();
     });
 
-    
+
 
 };
 
@@ -127,7 +128,7 @@ const removeParent = (e) => {
     let itemParent = e.target.closest(".item");
 
     itemParent.remove();
-
+    totalPriceUpdate()
 }
 // For removing item
 
@@ -144,7 +145,7 @@ const totalPriceUpdate = () => {
         const quantityElement = item.querySelector(".item-quantity");
         const price = parseFloat(priceElement.innerText.replace("$ ", ""));
         const quantity = quantityElement.value;
-        total += price * quantity; 
+        total += price * quantity;
     })
 
 
