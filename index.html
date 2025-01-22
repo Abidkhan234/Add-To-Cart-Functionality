@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add To Cart Functionality</title>
+
+    <!-- Bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap link -->
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome CDN -->
+
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar start -->
+
+    <nav
+        class="bg-white z-2 position-fixed top-0 left-0 right-0 ps-sm-5 pe-sm-5 pt-2 pb-2 d-flex w-100 justify-content-between align-items-center flex-wrap">
+        <div class="nav-logo d-flex gap-2 align-items-center">
+            <img src="./Images/nav/navLogo.png" width="50" height="32" alt="Nav-Logo">
+            <h2 class="m-0">Furniro</h2>
+        </div>
+
+        <div class="nav-menu">
+            <ul class="d-flex gap-5 m-0 list-unstyled">
+                <li><a href="#" class="text-decoration-none fs-5 text-black">Home</a></li>
+                <li><a href="./Screen/shopPage.html" class="text-decoration-none fs-5 text-black">Shop</a></li>
+                <li><a href="./Screen/blogPage.html" class="text-decoration-none fs-5 text-black">Blog</a></li>
+                <li><a href="./Screen/contactPage.html" class="text-decoration-none fs-5 text-black">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="side-nav-menu p-3 pt-5" id="side-nav-menu">
+            <i class="fas fa-xmark fs-3 position-absolute top-0 end-0 text-white" id="nav-cross"></i>
+            <div class="nav-logo d-flex gap-2">
+                <img src="./Images/nav/navLogo.png" width="50" height="32" alt="Nav-Logo">
+                <h2 class="m-0">Furniro</h2>
+            </div>
+
+            <ul class="d-flex flex-column gap-5 m-0 mt-5 list-unstyled">
+                <li><a href="#" class="text-decoration-none fs-5 fw-medium text-black">Home</a></li>
+                <li><a href="./Screen/shopPage.html" class="text-decoration-none fs-5 fw-medium text-black">Shop</a>
+                </li>
+                <li><a href="./Screen/blogPage.html" class="text-decoration-none fs-5 fw-medium text-black">Blog</a>
+                </li>
+                <li><a href="./Screen/contactPage.html"
+                        class="text-decoration-none fs-5 fw-medium text-black">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-icons d-flex gap-sm-4 gap-2">
+            <i class="fas fa-bars" id="nav-bar"></i>
+            <i class="fas fa-user"></i>
+            <i class="fas fa-magnifying-glass"></i>
+            <i class="fa-regular fa-heart"></i>
+            <div class="position-relative me-2">
+                <i class="fas fa-cart-shopping position-relative" id="cart-open-btn"></i>
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="cart-list d-flex flex-column gap-4 p-3">
+        <div class="cart-top pb-3 d-flex justify-content-between align-items-center">
+            <h2 class="m-0 fw-bold fs-4">Shopping Cart</h2>
+            <div class="cart-list-close position-relative">
+                <img src="./Images/nav/cart-close.png" alt="..." width="22" height="22">
+                <i class="fas fa-xmark position-absolute" id="cart-close-btn"></i>
+            </div>
+        </div>
+
+        <div class="cart-content d-flex flex-column gap-4 overflow-y-auto">
+
+            <!-- <div class="item">
+                <div class="container-fluid overflow-hidden">
+                    <div class="row">
+                        <div class="col-sm-4 mb-3">
+                            <div class="item-image">
+                                <img src="./Images/nav/Group 146.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-8">
+
+                            <div class="item-info d-flex gap-4 align-items-center h-100">
+
+                                <div class="d-flex flex-column gap-3">
+                                    <h4 class="m-0 fw-semibold">Asgaard sofa</h4>
+                                    <div class="item-quantity-info d-flex justify-content-between align-items-center">
+                                        <input type="number" class="item-quantity" value="1">
+                                        <p class="item-price m-0 fs-6 fw-medium">Rs. 250,000.00</p>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <i class="fas fa-xmark remove-parent-btn"></i>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div> -->
+            
+        </div>
+
+        <div class="cart-bottom">
+            <div class="container-fluid overflow-hidden">
+                <div class="row pb-2" style="border-bottom: 1px solid #898989;">
+                    <div class="col-12">
+                        <div class="total-price d-flex justify-content-between">
+                            <p class="m-0 fs-6 fw-medium">Subtotal</p>
+                            <span class="fs-6 fw-bold" id="totalPrice">$ 0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+
+                    <div class="col-12">
+                        <div class="cart-bottom-btns d-flex justify-content-between flex-wrap gap-2">
+                             
+                            <button class="fs-6 fw-medium bg-transparent">Cart</button>
+
+                            <button class="fs-6 fw-medium bg-transparent">Checkout</button>
+
+                            <button class="fs-6 fw-medium bg-transparent">Comparision</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navbar end -->
+
+    <!-- product-section start -->
+
+    <section class="product-section">
+        <div class="container-fluid overflow-hidden">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="heading text-center">
+                        <h3 class="fw-bold">Our Products</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="product-section-content ps-md-3 pt-0 pb-0 mb-3">
+                        <div class="product-card  d-flex flex-column gap-2">
+                            <div class="card-top">
+                                <img src="./Images/product-section/image 1.png" alt="...">
+                                <span class="bg-danger position-absolute text-white top-0 end-0 p-2">-30%</span>
+                            </div>
+                            <div class="card-bottom pt-0 d-flex gap-2 flex-column">
+                                <h5 class="fw-semibold">Stylish cafe Table</h5>
+                                <p class="text-black fw-medium m-0">$ 100</p>
+                            </div>
+                            <div class="card-overlay-content text-center d-flex flex-column gap-3 align-items-center">
+                                <button class="add-item">Add to cart</button>
+                                <div class="urls d-flex">
+                                    <i class="fas fa-share-nodes fs-6 text-white align-content-center"></i><a href="#"
+                                        class="text-white text-decoration-none ms-1 me-3">Share</a>
+                                    <i class="fas fa-arrow-right-arrow-left fs-6 text-white align-content-center"></i><a
+                                        href="#" class="text-white text-decoration-none ms-1 me-3">Compare</a>
+                                    <i class="fa-regular fa-heart fs-6 text-white align-content-center"></i><a href="#"
+                                        class="text-white text-decoration-none ms-1">Like</a>
+                                </div>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+
+                        <div class="product-card d-flex flex-column gap-2">
+                            <div class="card-top">
+                                <img src="./Images/product-section/image 2.png" alt="...">
+                            </div>
+                            <div class="card-bottom pt-0 d-flex gap-2 flex-column">
+                                <h5 class="fw-semibold">Stylish cafe chair</h5>
+                                <p class="text-black fw-medium m-0">$ 100</p>
+                            </div>
+                            <div class="card-overlay-content text-center d-flex flex-column gap-3 align-items-center">
+                                <button class="add-item">Add to cart</button>
+                                <div class="urls d-flex">
+                                    <i class="fas fa-share-nodes fs-6 text-white align-content-center"></i><a href="#"
+                                        class="text-white text-decoration-none ms-1 me-3">Share</a>
+                                    <i class="fas fa-arrow-right-arrow-left fs-6 text-white align-content-center"></i><a
+                                        href="#" class="text-white text-decoration-none ms-1 me-3">Compare</a>
+                                    <i class="fa-regular fa-heart fs-6 text-white align-content-center"></i><a href="#"
+                                        class="text-white text-decoration-none ms-1">Like</a>
+                                </div>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+
+                        <div class="product-card d-flex flex-column gap-2">
+                            <div class="card-top">
+                                <img src="./Images/product-section/image 3.png" alt="...">
+                                <span class="bg-danger position-absolute text-white top-0 end-0 p-2">-50%</span>
+                            </div>
+                            <div class="card-bottom pt-0 d-flex gap-2 flex-column">
+                                <h5 class="fw-semibold">Luxury big sofa</h5>
+                                <p class="text-black fw-medium m-0">$ 150</p>
+                            </div>
+                            <div class="card-overlay-content text-center d-flex flex-column gap-3 align-items-center">
+                                <button class="add-item">Add to cart</button>
+                                <div class="urls d-flex">
+                                    <i class="fas fa-share-nodes fs-6 text-white align-content-center"></i><a href="#"
+                                        class="text-white text-decoration-none ms-1 me-3">Share</a>
+                                    <i class="fas fa-arrow-right-arrow-left fs-6 text-white align-content-center"></i><a
+                                        href="#" class="text-white text-decoration-none ms-1 me-3">Compare</a>
+                                    <i class="fa-regular fa-heart fs-6 text-white align-content-center"></i><a href="#"
+                                        class="text-white text-decoration-none ms-1">Like</a>
+                                </div>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+
+                        <div class="product-card d-flex flex-column gap-2">
+                            <div class="card-top overflow-hidden">
+                                <img src="./Images/product-section/image 4.png" alt="...">
+                            </div>
+                            <div class="card-bottom pt-0 d-flex gap-2 flex-column">
+                                <h5 class="fw-semibold">Outdoor bar table and stool</h5>
+                                <p class="text-black fw-medium m-0">$ 176</p>
+                            </div>
+                            <div class="card-overlay-content text-center d-flex flex-column gap-3 align-items-center">
+                                <button class="add-item">Add to cart</button>
+                                <div class="urls d-flex">
+                                    <i class="fas fa-share-nodes fs-6 text-white align-content-center"></i><a href="#"
+                                        class="text-white text-decoration-none ms-1 me-3">Share</a>
+                                    <i class="fas fa-arrow-right-arrow-left fs-6 text-white align-content-center"></i><a
+                                        href="#" class="text-white text-decoration-none ms-1 me-3">Compare</a>
+                                    <i class="fa-regular fa-heart fs-6 text-white align-content-center"></i><a href="#"
+                                        class="text-white text-decoration-none ms-1">Like</a>
+                                </div>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- product-section end -->
+
+</body>
+
+<!-- Bootstrap Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<!-- Bootstrap Script -->
+
+<!-- Local Link -->
+<script src="./app.js"></script>
+<!-- Local Link -->
+
+</html>
